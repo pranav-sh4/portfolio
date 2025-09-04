@@ -107,6 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: 'power3.out',
     });
 
-    const phrases = ["PRANAVA S.", "A Full-Stack Developer", "A Problem Solver"];
+    const phrases = ["PRANAVA S.", "A Problem Solver"];
     new TypedText('typing-text', phrases);
 });
