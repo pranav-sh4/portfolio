@@ -27,7 +27,7 @@
     </script>
     <script src="https://unpkg.com/lucide-preact@latest"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script defer src="script1.js"></script>
+    <script defer src="script.js"></script>
 
     <style>
         .burger-menu div {
@@ -131,51 +131,6 @@
             bottom: 0;
             left: 0;
             transition: width 0.3s ease-in-out;
-        }
-        /* h2.section-heading {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.8rem;
-            margin-bottom: 40px;
-            color: var(--heading-color);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-            transition: color 0.4s ease;
-        }
-
-        h2.section-heading::after {
-            content: '';
-            position: absolute;
-            width: 60px;
-            height: 3px;
-            background-color: var(--accent-color);
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: 0;
-            border-radius: 2px;
-            transition: background-color 0.4s ease;
-        } */
-        .custom-cursor {
-            width: 40px; /* Size of the cursor */
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--accent-color);
-            position: fixed;
-            pointer-events: none; /* Clicks pass through */
-            z-index: 9999; /* Always on top */
-            transform: translate(-50%, -50%); /* Centers the cursor element */
-            transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
-            mix-blend-mode: difference; /* Creates a cool color effect with content */
-            opacity: 0.8;
-        }
-
-        /* Larger cursor on interactive elements */
-        a:hover ~ .custom-cursor,
-        button:hover ~ .custom-cursor,
-        .tech-card:hover ~ .custom-cursor,
-        .social-links a:hover ~ .custom-cursor {
-            width: 50px;
-            height: 50px;
         }
         @media (max-width: 768px) {
             .nav-links {
