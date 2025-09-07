@@ -25,6 +25,7 @@
             }
         }
     </script>
+    <link href="https://cdn.jsdelivr.net/npm/tw-animate-css/dist/tw-animate.css" rel="stylesheet">
     <script src="https://unpkg.com/lucide-preact@latest"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script defer src="script.js"></script>
@@ -72,12 +73,12 @@
         }
 
         .social-links a:hover .social-icon {
-            color: var(--accent-color);
+            color: var(--tw-bg-opacity);
             opacity: 1;
             transform: scale(1.1);
         }
         body.dark-mode .social-links a:hover .social-icon {
-            color: var(--accent-color); /* Keep orange accent in dark mode */
+            color: var(--tw-bg-opacity); 
         }
 
 
@@ -155,7 +156,10 @@
         }
     </style>
 </head>
-<body class="bg-gradient-to-r from-gray-100 to-gray-200 text-gray-900 font-poppins dark:from-gray-900 dark:to-gray-950 dark:text-gray-100 transition-colors duration-500 ">
+<body class="font-poppins text-gray-900 dark:text-gray-100
+  bg-gradient-to-br from-slate-50 via-indigo-50 to-slate-100
+  dark:from-gray-950 dark:via-gray-900 dark:to-gray-950
+  animate-gradient-xy transition-colors duration-700">
     <div>
         <header class="fixed top-0 z-50 w-full backdrop-blur-sm bg-white/70 dark:bg-gray-950/70 transition-all duration-300 border-b border-gray-200 dark:border-gray-800">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -166,22 +170,22 @@
                 </a>
             </div>
             
-            <ul class="nav-links space-y-6 md:space-y-0 md:space-x-6 text-lg font-medium md:flex ">
-                <li><a href="#home" class="hover:text-primary transition-colors">Home</a></li>
-                <li><a href="#about" class="hover:text-primary transition-colors">About</a></li>
-                <li><a href="#skills" class="hover:text-primary transition-colors">Skills</a></li>
-                <li><a href="#projects" class="hover:text-primary transition-colors">Projects</a></li>
-                <li><a href="#connect" class="hover:text-primary transition-colors">Connect</a></li>
+            <ul class="hidden md:flex space-x-8 text-lg font-medium ">
+                <li><a href="#home" class="relative hover:text-primary after:block after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left">Home</a></li>
+                <li><a href="#about" class="relative hover:text-primary after:block after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left">About</a></li>
+                <li><a href="#skills" class="relative hover:text-primary after:block after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left">Skills</a></li>
+                <li><a href="#projects" class="relative hover:text-primary after:block after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left">Projects</a></li>
+                <li><a href="#connect" class="relative hover:text-primary after:block after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left">Connect</a></li>
             </ul>
 
             <div class="flex items-center space-x-4">
                 <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle dark mode">
                     <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon text-gray-600 dark:text-gray-300"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
                 </button>
-                <div class="md:hidden burger-menu cursor-pointer">
-                    <div class="w-6 h-0.5 bg-gray-900 dark:bg-gray-50 my-1 transition-transform duration-300 line1"></div>
-                    <div class="w-6 h-0.5 bg-gray-900 dark:bg-gray-50 my-1 transition-opacity duration-300 line2"></div>
-                    <div class="w-6 h-0.5 bg-gray-900 dark:bg-gray-50 my-1 transition-transform duration-300 line3"></div>
+                <div class="md:hidden burger-menu cursor-pointer space-y-1 ">
+                    <div class="w-6 h-0.5 bg-gray-900 dark:bg-gray-50 transition-all"></div>
+                    <div class="w-6 h-0.5 bg-gray-900 dark:bg-gray-50 transition-all"></div>
+                    <div class="w-6 h-0.5 bg-gray-900 dark:bg-gray-50 transition-all"></div>
                 </div>
             </div>
         </nav>
@@ -221,7 +225,7 @@
                     <div class="md:w-2/3 space-y-6 text-lg leading-relaxed">
                         <p>Hello! I'm Pranava S, a dedicated Full-Stack Developer student from India, driven by the excitement of creating robust and user-friendly web applications. My academic journey has provided me with a strong foundation in both front-end aesthetics and back-end logic, emphasizing efficiency and performance.</p>
                         <p>I specialize in bringing concepts to life across the entire development stack. My passion lies in solving real-world problems through code and constantly learning new technologies.</p>
-                        <a href="assets/Pranava_S_FullStack_Resume_.pdf" download="Pranava_S_Resume.pdf" class="inline-flex items-center space-x-2 bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 font-medium py-2 px-4 rounded-full shadow hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
+                        <a href="assets/S_Pranava_FullStack_Resume.pdf" download="Pranava_S_Resume.pdf" class="inline-flex items-center space-x-2 bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 font-medium py-2 px-4 rounded-full shadow hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
                             <span >Download Resume</span>
                         </a>
@@ -230,7 +234,7 @@
             </div>
         </section>
 
-        <section id="skills" class="py-24 bg-white dark:bg-gray-950 transition-colors duration-500">
+        <section id="skills" class="py-24">
             <div class="container mx-auto px-4">
                 <h2 class="text-4xl font-bold text-center mb-12">My Tech Stack & Tools</h2>
                 <p class="w-24 h-1 bg-blue-500 mx-auto mb-12 rounded-full"></p>
@@ -256,8 +260,8 @@
                         <span class="text-lg font-medium text-gray-800 dark:text-gray-200">Git</span>
                     </div>
                     <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="images/github-svgrepo-com.svg" width="60" height="60" alt="GitHub" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">GitHub</span>
+                        <img src="icons/vue-vuejs-javascript-js-framework-svgrepo-com.svg" width="60" height="60" alt="Vue" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
+                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">Vue</span>
                     </div>
                     <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
                         <img src="icons/js-svgrepo-com.svg" width="60" height="60" alt="JavaScript" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
@@ -335,7 +339,7 @@
             </div>
         </section>
         
-        <section id="projects" class="py-24 bg-gray-50 dark:bg-gray-900 transition-colors duration-500">
+        <section id="projects" class="py-24">
             <div class="container mx-auto px-4">
                 <h2 class="text-4xl font-bold text-center mb-12">My Personal Projects</h2>
                 <p class="w-24 h-1 bg-blue-500 mx-auto mb-12 rounded-full"></p>
@@ -422,7 +426,7 @@
             </div>
         </section>
 
-        <section id="connect" class="py-24 bg-white dark:bg-gray-950 transition-colors duration-500">
+        <section id="connect" class="py-24">
             <div class="container mx-auto px-4 text-center">
                 <h2 class="text-4xl font-bold mb-6">Let's Connect</h2>
                 <p class="w-24 h-1 bg-blue-500 mx-auto mb-12 rounded-full"></p>
