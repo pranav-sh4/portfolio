@@ -1,466 +1,1594 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pranava S | Portfolio</title>
-    <link rel="icon" type="image/png" href="icons/e-learning-svgrepo-com.svg">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        'primary': '#6366f1',
-                        'secondary': '#e2e8f0',
-                    },
-                    fontFamily: {
-                        'poppins': ['Poppins', 'sans-serif'],
-                        'montserrat': ['Montserrat', 'sans-serif'],
-                    }
-                }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>S Pranava | Full-Stack Systems & Applied AI</title>
+  
+  <!-- OpenGraph Metadata -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pranava-dev.vercel.app/" />
+  <meta property="og:title" content="S Pranava — Full-Stack Systems & Applied AI Engineer" />
+  <meta property="og:description" content="Engineering resilient web architectures, distributed systems, and applied machine learning models." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&h=630&q=80" />
+  
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://pranava-dev.vercel.app/" />
+  <meta name="twitter:title" content="S Pranava — Full-Stack Systems & Applied AI Engineer" />
+  <meta name="twitter:description" content="Engineering resilient web architectures, distributed systems, and applied machine learning models." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&h=630&q=80" />
+
+  <!-- Silicon Node Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2305070f'/><circle cx='50' cy='50' r='24' fill='none' stroke='%233b82f6' stroke-width='6'/><circle cx='50' cy='50' r='10' fill='%2310b981'/><path d='M50 14v12M50 74v12M14 50h12M74 50h12' stroke='%233b82f6' stroke-width='6' stroke-linecap='round'/></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Syne', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          screens: {
+            '2xl': '1536px',
+            '3xl': '1920px',
+          },
+          colors: {
+            brand: {
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              glow: 'rgba(59, 130, 246, 0.28)'
+            },
+            mint: {
+              400: '#34d399',
+              500: '#10b981',
+            },
+            cyber: {
+              dark: '#05070f',
+              surface: '#0a0f1d',
+              card: '#0e1528',
+              border: 'rgba(255, 255, 255, 0.08)'
             }
+          }
         }
-    </script>
-    <link href="https://cdn.jsdelivr.net/npm/tw-animate-css/dist/tw-animate.css" rel="stylesheet">
-    <script src="https://unpkg.com/lucide-preact@latest"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script defer src="script.js"></script>
+      }
+    }
+  </script>
 
-    <style>
-        .burger-menu div {
-            transform-origin: 1px;
-        }
-        .burger-menu.open .line1 {
-            transform: rotate(45deg);
-        }
-        .burger-menu.open .line2 {
-            opacity: 0;
-            transform: translateX(20px);
-        }
-        .burger-menu.open .line3 {
-            transform: rotate(-45deg);
-        }
-        .nav-links {
-            display: none;
-        }
-        .social-links {
-            margin-top: 40px;
-            margin-bottom: 40px;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 25px;
-        }
+  <!-- Lucide Vector Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 
-        .social-links a {
-            display: inline-block;
-            transition: transform 0.3s ease, filter 0.3s ease;
-        }
+  <style>
+    .title-safe {
+      line-height: 1.18 !important;
+      padding-bottom: 0.15em !important;
+      overflow: visible !important;
+    }
 
-        .social-links a .social-icon {
-            font-size: 60px;
-            color: var(--icon-color-base);
-            opacity: 0.8;
-            transition: color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
-        }
+    .cyber-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    }
+    html:not(.dark) .cyber-grid {
+      background-image: 
+        linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+    }
 
-        .social-links a:hover {
-            transform: translateY(-8px);
-        }
+    .glass-hud {
+      background-color: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .dark .glass-hud {
+      background-color: rgba(14, 21, 40, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
 
-        .social-links a:hover .social-icon {
-            color: var(--tw-bg-opacity);
-            opacity: 1;
-            transform: scale(1.1);
-        }
-        body.dark-mode .social-links a:hover .social-icon {
-            color: var(--tw-bg-opacity); 
-        }
+    .tech-card {
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .tech-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(59, 130, 246, 0.5);
+      box-shadow: 0 16px 32px -10px rgba(59, 130, 246, 0.25);
+    }
 
+    /* Interactive Holographic Profile Illusions */
+    @keyframes floatHero {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(0.8deg); }
+    }
+    @keyframes pulseRing {
+      0% { transform: scale(0.96) rotate(0deg); opacity: 0.5; }
+      50% { transform: scale(1.04) rotate(180deg); opacity: 0.9; }
+      100% { transform: scale(0.96) rotate(360deg); opacity: 0.5; }
+    }
+    @keyframes scanline {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(280%); }
+    }
 
-        .connect-email-direct {
-            font-size: 1.15rem;
-            color: var(--primary-color);
-            margin-top: 40px;
-            font-weight: 500;
-        }
-        .connect-email-direct a {
-            color: var(--accent-color);
-            font-weight: bold;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .connect-email-direct a:hover {
-            color: var(--secondary-accent);
-            text-decoration: underline;
-        }
-        body.dark-mode .connect-email-direct a {
-            color: var(--accent-color); /* Keep orange accent in dark mode */
-        }
-        body.dark-mode .connect-email-direct a:hover {
-            color: var(--secondary-accent); /* Use secondary accent for hover in dark mode */
-        }
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 20px;
-        }
+    .hero-avatar-wrap {
+      animation: floatHero 6s ease-in-out infinite;
+      perspective: 1000px;
+    }
+    .hero-ring-glow {
+      animation: pulseRing 9s linear infinite;
+    }
+    .hero-scanline {
+      animation: scanline 4s linear infinite;
+    }
 
-        .social-icon-img {
-            width: 45px;
-            height: 45px;
-            transition: transform 0.3s ease, filter 0.3s ease;
-            filter: grayscale(100%);
-        }
+    /* Ambient Cursor Tracker */
+    @media (pointer: fine) {
+      .cursor-dot {
+        pointer-events: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 8px; height: 8px;
+        background-color: #3b82f6;
+        border-radius: 50%;
+        z-index: 9999;
+        transition: transform 0.06s ease-out;
+      }
+      .cursor-ring {
+        pointer-events: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 32px; height: 32px;
+        border: 1.5px solid rgba(59, 130, 246, 0.5);
+        border-radius: 50%;
+        z-index: 9998;
+        transition: transform 0.16s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+      }
+      .cursor-active .cursor-ring {
+        transform: scale(1.6);
+        border-color: #10b981;
+        background-color: rgba(16, 185, 129, 0.08);
+      }
+    }
 
-        .social-icon-img:hover {
-            transform: scale(1.2);
-            filter: grayscale(0%);
-        }
+    /* Modals & Reveal Transitions */
+    #cliModal, #projectModal {
+      transition: opacity 0.28s ease, visibility 0.28s ease;
+    }
+    #cliModal.active, #projectModal.active {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+    }
+    #cliPanel, #projectPanel {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #cliModal.active #cliPanel, #projectModal.active #projectPanel {
+      transform: translateX(0) !important;
+    }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background-color: var(--tw-bg-opacity);
-            bottom: 0;
-            left: 0;
-            transition: width 0.3s ease-in-out;
-        }
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: 0;
-                height: 100vh;
-                width: 70%;
-                background: linear-gradient(to bottom, var(--tw-gradient-from), var(--tw-gradient-to));
-                background-color: var(--tw-bg-opacity);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                z-index: 40;
-                transition: transform 0.3s ease-in-out;
-                transform: translateX(100%);
-            }
-            .nav-links.active {
-                display: flex;
-                transform: translateX(0);
-            }
-        }
-    </style>
+    .reveal-box {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-box.in-view {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+  </style>
 </head>
-<body class="font-poppins text-gray-900 dark:text-gray-100
-  bg-gradient-to-br from-slate-50 via-indigo-50 to-slate-100
-  dark:from-gray-950 dark:via-gray-900 dark:to-gray-950
-  animate-gradient-xy transition-colors duration-700">
-    <div>
-        <header class="fixed top-0 z-50 w-full backdrop-blur-sm bg-white/70 dark:bg-gray-950/70 transition-all duration-300 border-b border-gray-200 dark:border-gray-800">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="logo-profile-pic-container">
-                <a href="#home" class="flex items-center space-x-2">
-                    <img src="images/avatar-thinking-6-svgrepo-com.svg" alt="Pranava S Profile" class="h-10 w-10  p-1">
-                    <span class="text-xl font-bold font-montserrat">Pranava S</span>
-                </a>
-            </div>
-            
-            <ul class="hidden md:flex space-x-8 text-lg font-medium ">
-                <li><a href="#home" class="relative hover:text-primary after:block after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left">Home</a></li>
-                <li><a href="#about" class="relative hover:text-primary after:block after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left">About</a></li>
-                <li><a href="#skills" class="relative hover:text-primary after:block after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left">Skills</a></li>
-                <li><a href="#projects" class="relative hover:text-primary after:block after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left">Projects</a></li>
-                <li><a href="#connect" class="relative hover:text-primary after:block after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left">Connect</a></li>
-            </ul>
 
-            <div class="flex items-center space-x-4">
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle dark mode">
-                    <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon text-gray-600 dark:text-gray-300"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-                </button>
-                <div class="md:hidden burger-menu cursor-pointer space-y-1 ">
-                    <div class="w-6 h-0.5 bg-gray-900 dark:bg-gray-50 transition-all"></div>
-                    <div class="w-6 h-0.5 bg-gray-900 dark:bg-gray-50 transition-all"></div>
-                    <div class="w-6 h-0.5 bg-gray-900 dark:bg-gray-50 transition-all"></div>
-                </div>
-            </div>
-        </nav>
-    </header>
+<body class="bg-slate-50 dark:bg-cyber-dark text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300 relative overflow-x-hidden cyber-grid selection:bg-brand-600 selection:text-white">
 
-    <main>
-        <section id="home" class="min-h-screen flex items-center justify-center p-8 text-center overflow-hidden">
-            <div class="z-10 max-w-4xl space-y-6">
-                <h4 class="text-xl text-primary font-medium" data-animate="1">Hello, I'm</h4>
-                <h1 class="text-5xl md:text-7xl font-extrabold font-montserrat" data-animate="2">
-                    <span id="typing-text"></span>
-                </h1>
-                <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed" data-animate="3">
-                    A <strong class="font-bold text-gray-900 dark:text-gray-50">Full-Stack Developer</strong> passionate about building impactful and intuitive web solutions that bridge the gap between complex ideas and seamless user experiences as I thrive on crafting clean, efficient code.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-8" data-animate="4">
-                    <a href="#projects" class="bg-primary text-white font-medium py-3 px-6 rounded-full hover:bg-indigo-700 transition-transform duration-300 transform hover:scale-105 shadow-lg">
-                        Explore My Work
-                    </a>
-                    <a href="#connect" class="border border-gray-400 dark:border-gray-600 text-gray-600 dark:text-gray-300 font-medium py-3 px-6 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300">
-                        Let's Connect
-                    </a>
-                </div>
-            </div>
-        </section>
+  <!-- Desktop Interactive Cursor Pointer -->
+  <div class="cursor-dot hidden md:block" id="cursorDot"></div>
+  <div class="cursor-ring hidden md:block" id="cursorRing"></div>
 
-        <section id="about" class="py-24 " >
-            <div class="container mx-auto px-4 p-8 rounded-xl backdrop-blur-md bg-white/80 dark:bg-gray-950/80 shadow-lg">
-                <h2 class="text-4xl font-bold text-center mb-12 " >About Me</h2>
-                <p class="w-24 h-1 bg-blue-500 mx-auto mb-12 rounded-full"></p>
-                <div class="flex flex-col md:flex-row items-center md:space-x-12">
-                    <div class="md:w-1/3 mb-8 md:mb-0">
-                        <div class="w-64 h-64 mx-auto rounded-full overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
-                            <img src="images/profile.jpg" alt="Pranava S Profile Picture" class="w-full h-full object-cover">
-                        </div>
-                    </div>
-                    <div class="md:w-2/3 space-y-6 text-lg leading-relaxed">
-                        <p>Hello! I'm Pranava S, a dedicated Full-Stack Developer student from India, driven by the excitement of creating robust and user-friendly web applications. My academic journey has provided me with a strong foundation in both front-end aesthetics and back-end logic, emphasizing efficiency and performance.</p>
-                        <p>I specialize in bringing concepts to life across the entire development stack. My passion lies in solving real-world problems through code and constantly learning new technologies.</p>
-                        <a href="assets/S_Pranava_FullStack_Resume.pdf" download="Pranava_S_Resume.pdf" class="inline-flex items-center space-x-2 bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 font-medium py-2 px-4 rounded-full shadow hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
-                            <span >Download Resume</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <!-- Multi-Color Gradient Mesh Glows -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none -z-20">
+    <div class="absolute -top-40 left-1/3 -translate-x-1/2 w-[650px] 3xl:w-[1200px] h-[500px] bg-brand-600/20 blur-[150px] rounded-full"></div>
+    <div class="absolute top-[30%] right-[-100px] w-[500px] h-[500px] bg-purple-600/15 blur-[160px] rounded-full"></div>
+    <div class="absolute top-[65%] left-[-100px] w-[550px] h-[550px] bg-mint-500/10 blur-[160px] rounded-full"></div>
+  </div>
 
-        <section id="skills" class="py-24">
-            <div class="container mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center mb-12">My Tech Stack & Tools</h2>
-                <p class="w-24 h-1 bg-blue-500 mx-auto mb-12 rounded-full"></p>
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/react-svgrepo-com.svg" width="60" height="60" alt="React.js" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">React.js</span>
-                    </div>
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/nodejs-icon-svgrepo-com.svg" width="60" height="60" alt="Node.js" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">Node.js</span>
-                    </div>
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/tailwindcss-icon-svgrepo-com.svg" width="60" height="60" alt="TailwindCSS" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">TailwindCSS</span>
-                    </div>
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/mongodb-svgrepo-com.svg" width="60" height="60" alt="MongoDB" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">MongoDB</span>
-                    </div>
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/git-svgrepo-com.svg" width="60" height="60" alt="Git" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">Git</span>
-                    </div>
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/vue-vuejs-javascript-js-framework-svgrepo-com.svg" width="60" height="60" alt="Vue" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">Vue</span>
-                    </div>
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/js-svgrepo-com.svg" width="60" height="60" alt="JavaScript" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">JavaScript</span>
-                    </div>
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/python-svgrepo-com.svg" width="60" height="60" alt="Python" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">Python</span>
-                    </div>
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/linux-svgrepo-com.svg" width="60" height="60" alt="Linux" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">Linux</span>
-                    </div>
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/java-svgrepo-com.svg" width="60" height="60" alt="Java" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">Java</span>
-                    </div>
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/docker-svgrepo-com.svg" width="60" height="60" alt="Docker" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">Docker</span>
-                    </div>
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/figma-svgrepo-com.svg" width="60" height="60" alt="Figma" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">Figma</span>
-                    </div>
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/aws-svgrepo-com.svg" width="60" height="60" alt="aws" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">AWS</span>
-                    </div>
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/html-5-svgrepo-com.svg" width="60" height="60" alt="HTML5" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">HTML5</span>
-                    </div>
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/css-3-svgrepo-com.svg" width="60" height="60" alt="CSS3" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">CSS3</span>
-                    </div>
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/c-svgrepo-com.svg" width="60" height="60" alt="C" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">C</span>
-                    </div>
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/cpp-svgrepo-com (1).svg" width="60" height="60" alt="C++" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">C++</span>
-                    </div>
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/firebase-svgrepo-com.svg" width="60" height="60" alt="Firebase" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">Firebase</span>
-                    </div>
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/typescript-icon-svgrepo-com.svg" width="60" height="60" alt="TypeScript" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">TypeScript</span>
-                    </div>
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/mysql-svgrepo-com.svg" width="60" height="60" alt="MySQL" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">MySQL</span>
-                    </div>
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/postman-icon-svgrepo-com.svg" width="60" height="60" alt="Postman" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">Postman</span>
-                    </div>
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/next-js-svgrepo-com.svg" width="60" height="60" alt="next.js" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">Next.js</span>
-                    </div>
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/glsl-svgrepo-com.svg" width="60" height="60" alt="OpenGL" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">OpenGL</span>
-                    </div>
-                    <div class="group flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="icons/bootstrap-svgrepo-com.svg" width="60" height="60" alt="Bootstrap" class="mb-4 transition-transform duration-300 group-hover:-translate-y-2">
-                        <span class="text-lg font-medium text-gray-800 dark:text-gray-200">Bootstrap</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="projects" class="py-24">
-            <div class="container mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center mb-12">My Personal Projects</h2>
-                <p class="w-24 h-1 bg-blue-500 mx-auto mb-12 rounded-full"></p>
-                <div class="flex flex-col md:flex-row md:items-center bg-white dark:bg-gray-950 rounded-xl shadow-xl overflow-hidden transition-transform duration-300 hover:scale-[1.01] mb-12">
-                    <div class="md:w-1/2 project-image-wrapper">
-                        <img src="images/SwapSkill2.webp" alt="SwapSkill Platform Thumbnail" class="w-full h-full object-cover">
-                    </div>
-                    <div class="md:w-1/2 p-8 space-y-4">
-                        <h3 class="text-2xl font-bold">SwapSkill: Collaborative Platform for Skill-Sharing and Real-World Projects</h3>
-                        <p class="text-gray-500 dark:text-gray-400 font-medium">MERN Stack | JWT Authentication</p>
-                        <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
-                            <li>Addressed the challenge of siloed learning and limited access to collaborative project opportunities by creating a centralized platform for skill exchange and real-world project participation.</li>
-                            <li>Designed a sponsorship module where project sponsors can post challenges and offer incentives, fostering collaboration and increasing project participation by 50%.</li>
-                            <li>Created an intuitive dashboard to track ongoing skill exchanges and project progress, providing real-time insights and improving project completion rates by 20%.</li>
-                        </ul>
-                        <div class="flex space-x-4 mt-6">
-                            <a href="https://github.com/pranav-sh4/SwapSkill.git" target="" class="flex items-center space-x-2 bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 font-medium py-2 px-4 rounded-full shadow hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-3-4v-1a4 4 0 0 1-4-4v-1.75c0-1.25.75-2.5 2-2.75a2 2 0 0 1 2-.75h2a2 2 0 0 1 2 .75c1.25.25 2 1.5 2 2.75V15a4 4 0 0 0-3 4v4"/></svg>
-                                <span>Code</span>
-                            </a>
-                            <a href="https://swapskill.vercel.app/" target="" class="flex items-center space-x-2 bg-primary text-white font-medium py-2 px-4 rounded-full shadow hover:bg-indigo-700 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-                                <span>Live Demo</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex flex-col md:flex-row md:items-center bg-white dark:bg-gray-950 rounded-xl shadow-xl overflow-hidden transition-transform duration-300 hover:scale-[1.01] mb-12">
-                    <div class="md:w-1/2 p-8 space-y-4">
-                        <h3 class="text-2xl font-bold">SeniorCare: Senior Citizen Activity Tracking and Monitoring System</h3>
-                        <p class="text-gray-500 dark:text-gray-400 font-medium">MySQL | React.js | Node.js | Express.js</p>
-                        <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
-                            <li>Provided a solution for remote monitoring and enhanced safety for senior citizens, addressing concerns about their well-being and enabling timely caregiver intervention.</li>
-                            <li>Modeled and implemented a relational database to support senior activity logging, fall detection triggers, and caregiver notifications using SQL and backend API endpoints.</li>
-                        </ul>
-                        <div class="flex space-x-4 mt-6">
-                            <a href="https://github.com/pranav-sh4/SeniorCare.git" target="" class="flex items-center space-x-2 bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 font-medium py-2 px-4 rounded-full shadow hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-3-4v-1a4 4 0 0 1-4-4v-1.75c0-1.25.75-2.5 2-2.75a2 2 0 0 1 2-.75h2a2 2 0 0 1 2 .75c1.25.25 2 1.5 2 2.75V15a4 4 0 0 0-3 4v4"/></svg>
-                                <span>Code</span>
-                            </a>
-                            <a href="https://seniorcare.vercel.app/" target="" class="flex items-center space-x-2 bg-primary text-white font-medium py-2 px-4 rounded-full shadow hover:bg-indigo-700 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-                                <span>Live Demo</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2 project-image-wrapper">
-                        <img src="images/SeniorCare1.png" alt="SeniorCare System Thumbnail" class="w-full h-full object-cover">
-                    </div>
-                </div>
-
-                <div class="flex flex-col md:flex-row md:items-center bg-white dark:bg-gray-950 rounded-xl shadow-xl overflow-hidden transition-transform duration-300 hover:scale-[1.01] mb-12">
-                    <div class="md:w-1/2 project-image-wrapper">
-                        <img src="images/WHMS1.png" alt="WHMS Hospital System Thumbnail" class="w-full h-full object-cover">
-                    </div>
-                    <div class="md:w-1/2 p-8 space-y-4">
-                        <h3 class="text-2xl font-bold">WHMS: Wenlock Hospital Management System</h3>
-                        <p class="text-gray-500 dark:text-gray-400 font-medium">MERN Stack | TailwindCSS | Socket.io | StreamlitUI</p>
-                        <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
-                            <li>Streamlined complex hospital operations, addressing inefficiencies in patient flow, scheduling, and inventory management for improved patient care and administrative efficiency.</li>
-                            <li>Built a live token queue with auto-advance, reducing patient wait and congestion by 40%.</li>
-                            <li>Developed conflict-free OT scheduler with emergency override support.</li>
-                            <li>Integrated pharmacy tracking, RBAC, and real-time alerts for streamlined hospital operations.</li>
-                        </ul>
-                        <div class="flex space-x-4 mt-6">
-                            <a href="https://github.com/pranav-sh4/WenSync.git" target="" class="flex items-center space-x-2 bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 font-medium py-2 px-4 rounded-full shadow hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors" >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-3-4v-1a4 4 0 0 1-4-4v-1.75c0-1.25.75-2.5 2-2.75a2 2 0 0 1 2-.75h2a2 2 0 0 1 2 .75c1.25.25 2 1.5 2 2.75V15a4 4 0 0 0-3 4v4"/></svg>
-                                <span>Code</span>
-                            </a>
-                            <a href="https://whms.vercel.app/" target="" class="flex items-center space-x-2 bg-primary text-white font-medium py-2 px-4 rounded-full shadow hover:bg-indigo-700 transition-colors" >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-                                <span>Live Demo</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="view-more-projects text-center mt-12">
-                    <a href="https://github.com/pranav-sh4?tab=repositories" target="" class="bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 font-medium py-3 px-6 rounded-full shadow hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
-                        View All My Projects on GitHub
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="connect" class="py-24">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-4xl font-bold mb-6">Let's Connect</h2>
-                <p class="w-24 h-1 bg-blue-500 mx-auto mb-12 rounded-full"></p>
-                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
-                    I'm always open to new opportunities, collaborations, or just a friendly chat. Reach out to me on any of these platforms:
-                </p>
-
-                <div class="social-links animate-fade-in-delay">
-                    <a href="https://linkedin.com/in/pranava-s" target="" aria-label="Connect on LinkedIn">
-                        <img src="images/linkedin-1-svgrepo-com.svg" alt="LinkedIn" class="social-icon-img">
-                    </a>
-                    <a href="https://github.com/pranav-sh4" target="" aria-label="View my GitHub profile">
-                        <img src="images/github-svgrepo-com.svg" alt="GitHub" class="social-icon-img">
-                    </a>
-                    <a href="https://twitter.com/yourhandle" target="" aria-label="Follow me on Twitter">
-                        <img src="images/instagram-1-svgrepo-com.svg" alt="Twitter" class="social-icon-img">
-                    </a>
-                    <a href="mailto:psholla04@gmail.com" aria-label="Send me an email">
-                        <img src="images/gmail-svgrepo-com.svg" alt="Email" class="social-icon-img">
-                    </a>
-                    <a href="https://medium.com/@yourblog" target="" aria-label="Read my blog on Medium">
-                        <img src="images/reddit-svgrepo-com.svg" alt="Medium" class="social-icon-img">
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="main-footer py-8 bg-gray-100 dark:bg-gray-900 transition-colors duration-500">
-        <div class="container mx-auto text-center text-sm text-gray-600 dark:text-gray-400">
-            <p>&copy; 2025 Pranava S. All rights reserved.</p>
-            <p>Crafted with passion and custom code.</p>
+  <!-- Header Navigation -->
+  <header class="fixed top-4 left-0 w-full z-40 px-4 sm:px-8">
+    <div class="max-w-7xl 3xl:max-w-[1720px] mx-auto flex items-center justify-between glass-hud rounded-2xl px-5 py-3 shadow-lg shadow-black/5 dark:shadow-black/25">
+      
+      <!-- Brand Logo -->
+      <a href="#home" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 via-indigo-600 to-cyan-400 text-white flex items-center justify-center font-mono font-bold text-sm shadow-md shadow-brand-600/30 group-hover:scale-105 transition-transform">
+          SP
         </div>
-    </footer>
+        <div>
+          <span class="font-heading font-bold tracking-tight text-slate-900 dark:text-white text-base block group-hover:text-brand-500 transition-colors">S Pranava</span>
+          <span class="font-mono text-[11px] text-slate-500 dark:text-slate-400 block -mt-0.5">Systems &amp; Applied AI</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Anchors -->
+      <nav class="hidden lg:flex items-center gap-7 text-xs 3xl:text-sm font-semibold tracking-wide uppercase font-mono text-slate-600 dark:text-slate-300">
+        <a href="#home" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Home</a>
+        <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">About</a>
+        <a href="#experience" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Experience</a>
+        <a href="#projects" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Projects</a>
+        <a href="#skills" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Stack</a>
+        <a href="#publications" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Research</a>
+        <a href="#certifications" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Credentials</a>
+      </nav>
+
+      <!-- Action Cluster -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        
+        <!-- Interactive Terminal CLI Trigger -->
+        <button id="openCliBtn" type="button" aria-label="Open CLI Console" class="flex items-center gap-2 px-3 py-2 rounded-xl bg-brand-50 dark:bg-brand-600/15 text-brand-700 dark:text-brand-400 hover:bg-brand-100 dark:hover:bg-brand-600/25 transition-all text-xs font-mono font-medium">
+          <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
+          <span class="hidden sm:inline">CLI Console</span>
+          <kbd class="hidden md:inline-block px-1.5 py-0.5 text-[9px] bg-slate-200 dark:bg-black/40 rounded text-slate-700 dark:text-slate-300">Ctrl K</kbd>
+        </button>
+
+        <!-- Resume Asset Link -->
+        <a href="assets/S_Pranava_Resume_Full_Stack_Dev.pdf" target="_blank" rel="noopener noreferrer" 
+           class="hidden sm:flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-800 dark:text-white text-xs font-medium transition-all">
+          <i data-lucide="file-down" class="w-3.5 h-3.5 text-brand-600 dark:text-brand-400"></i>
+          <span>Resume</span>
+        </a>
+
+        <!-- Dark/Light Mode Switcher -->
+        <button id="themeToggleBtn" type="button" aria-label="Toggle Dark or Light Mode" class="p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 text-slate-700 dark:text-slate-300 transition-colors">
+          <i data-lucide="moon" id="themeIcon" class="w-4 h-4"></i>
+        </button>
+
+        <!-- Mobile Drawer Toggle -->
+        <button id="mobileMenuBtn" type="button" aria-label="Toggle Navigation Menu" class="lg:hidden p-2 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5">
+          <i data-lucide="menu" id="menuIcon" class="w-5 h-5"></i>
+        </button>
+      </div>
+
     </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileDrawer" class="hidden lg:hidden mt-2 max-w-7xl mx-auto glass-hud rounded-2xl p-6 flex flex-col gap-4 font-mono text-sm shadow-2xl">
+      <a href="#home" class="mobile-nav-link text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 py-1">01. // Home</a>
+      <a href="#about" class="mobile-nav-link text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 py-1">02. // About</a>
+      <a href="#experience" class="mobile-nav-link text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 py-1">03. // Experience</a>
+      <a href="#projects" class="mobile-nav-link text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 py-1">04. // Projects</a>
+      <a href="#skills" class="mobile-nav-link text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 py-1">05. // Stack</a>
+      <a href="#publications" class="mobile-nav-link text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 py-1">06. // Research</a>
+      <a href="#certifications" class="mobile-nav-link text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 py-1">07. // Credentials</a>
+      <a href="https://drive.google.com/file/d/1XQcmBOOgtCXLOU0WY1srR50r_oF1-82T/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="text-brand-600 dark:text-brand-400 font-semibold py-1">Download Resume &rarr;</a>
+    </div>
+  </header>
+
+  <!-- Hero Section with Large Illuminated Profile Illusions & Typography -->
+  <section id="home" class="min-h-[100dvh] flex flex-col justify-center max-w-7xl 3xl:max-w-[1720px] mx-auto px-6 sm:px-10 pt-28 lg:pt-20">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      
+      <!-- Left Column: Typography, Impact Statement & Action Hub -->
+      <div class="lg:col-span-7 space-y-6 order-2 lg:order-1">
+        
+        <!-- Live System Telemetry Tag -->
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-brand-50 dark:bg-brand-600/15 border border-brand-200 dark:border-brand-500/20 text-brand-700 dark:text-brand-400 text-xs font-mono font-medium shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-mint-500 animate-pulse"></span>
+          <span>NODE // MANGALURU_SYS_IN &middot; STATUS: ONLINE</span>
+        </div>
+
+        <!-- Grand Name & Clean Display Header -->
+        <div class="space-y-1">
+          <span class="text-xs sm:text-sm font-mono tracking-widest text-slate-500 dark:text-slate-400 uppercase block">Software Systems &amp; Applied Intelligence</span>
+          <h1 class="title-safe font-heading text-5xl sm:text-7xl lg:text-8xl 3xl:text-9xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+            S Pranava<span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 via-indigo-500 to-cyan-400">.</span>
+          </h1>
+        </div>
+
+        <!-- Inspiring Pitch -->
+        <p class="text-base sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl font-normal leading-relaxed">
+          I build resilient, high-throughput digital systems where <strong class="text-slate-900 dark:text-white font-semibold">computational rigor meets intuitive flow</strong>. Specializing in micro-frontends, scalable cloud backends, and applied AI pipelines.
+        </p>
+
+        <!-- Action Cluster with Official Brand Assets -->
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <a href="#projects" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-brand-600 via-indigo-600 to-brand-700 hover:opacity-95 text-white font-medium text-sm flex items-center gap-2 shadow-lg shadow-brand-600/30 transition-all">
+            <span>Explore Architecture</span>
+            <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+          </a>
+          
+          <!-- Official GitHub Vector Icon -->
+          <a href="https://github.com/pranav-sh4" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl glass-hud text-slate-800 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 text-sm font-medium flex items-center gap-2.5 transition-all">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+            </svg>
+            <span>GitHub</span>
+          </a>
+
+          <!-- Official LinkedIn Vector Icon -->
+          <a href="https://www.linkedin.com/in/pranava-s-345929247/" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl glass-hud text-slate-800 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 text-sm font-medium flex items-center gap-2.5 transition-all">
+            <svg class="w-4 h-4 fill-current text-[#0a66c2]" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.53 1.53 0 0 0 0-3.06 1.53 1.53 0 0 0 0 3.06m1.4 9.74v-8.37H5.06v8.37h2.8z"></path>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+
+          <!-- Copy Email Utility -->
+          <button type="button" onclick="copyToClipboard('psholla04@gmail.com', 'psholla04@gmail.com copied to clipboard!')" class="px-5 py-3.5 rounded-xl glass-hud text-slate-800 dark:text-slate-200 hover:text-mint-500 dark:hover:text-mint-400 text-sm font-medium flex items-center gap-2 transition-all">
+            <i data-lucide="mail" class="w-4 h-4 text-mint-500"></i>
+            <span>psholla04@gmail.com</span>
+          </button>
+        </div>
+
+        <!-- Clean Telemetry Data Strip -->
+        <div class="pt-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-xs font-mono text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-white/5">
+          <div><span class="text-slate-400 block text-[10px] uppercase">Focus</span> Systems &amp; AI</div>
+          <div><span class="text-slate-400 block text-[10px] uppercase">Base</span> Mangaluru, India</div>
+          <div><span class="text-slate-400 block text-[10px] uppercase">Ecosystem</span> Next.js &middot; Cloud</div>
+          <div><span class="text-slate-400 block text-[10px] uppercase">Degree</span> B.E. CSE '26</div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Clean Large Profile Image with Animated Holographic Illusions -->
+      <div class="lg:col-span-5 flex justify-center order-1 lg:order-2">
+        <div class="relative w-72 sm:w-80 md:w-96 lg:w-[420px] aspect-square hero-avatar-wrap">
+          
+          <!-- Outer Rotating Cosmic Gradient Ring Illusion -->
+          <div class="absolute -inset-4 sm:-inset-6 rounded-full hero-ring-glow bg-gradient-to-tr from-brand-500 via-indigo-500 to-cyan-400 blur-xl opacity-75 dark:opacity-60 -z-10"></div>
+          
+          <!-- Cyber Orbital Ring Graphic -->
+          <div class="absolute -inset-2 rounded-full border border-dashed border-brand-400/30 dark:border-brand-400/40 pointer-events-none hero-ring-glow"></div>
+
+          <!-- Main Illuminated Glass Picture Container -->
+          <div class="relative w-full h-full rounded-full p-2 bg-gradient-to-b from-white/30 via-white/10 to-transparent dark:from-white/15 dark:to-transparent shadow-2xl backdrop-blur-sm overflow-hidden">
+            
+            <div class="relative w-full h-full rounded-full overflow-hidden bg-slate-950">
+              <img src="assets/SP_profile.jpeg" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80'" alt="S Pranava Profile" class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700" />
+              
+              <!-- Subtle Holographic Gradient & Cyan Scanline Illusion Overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-brand-500/10 pointer-events-none"></div>
+              <div class="absolute inset-x-0 h-16 bg-gradient-to-b from-transparent via-cyan-400/20 to-transparent pointer-events-none hero-scanline opacity-60"></div>
+            </div>
+
+            <!-- Floating Tech HUD Telemetry Badge (Corner Overlay) -->
+            <!-- <div class="absolute bottom-4 right-4 glass-hud px-4 py-2 rounded-2xl shadow-xl flex items-center gap-2.5 border border-white/20 dark:border-white/10">
+              <span class="w-2.5 h-2.5 rounded-full bg-mint-500 animate-ping"></span>
+              <div class="text-left font-mono">
+                <span class="text-[9px] uppercase tracking-wider text-slate-400 block">SYSTEM AUTH</span>
+                <span class="text-xs font-bold text-slate-900 dark:text-white">FULL-STACK</span>
+              </div>
+            </div> -->
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Main View Container -->
+  <main class="max-w-7xl 3xl:max-w-[1720px] mx-auto px-6 sm:px-10">
+    
+    <!-- About Section with Explicit Computer Science Academics Sub-card -->
+    <section id="about" class="py-24 border-t border-slate-200 dark:border-white/5 reveal-box">
+      <div class="max-w-4xl mx-auto space-y-6 text-center lg:text-left">
+        <div class="text-xs font-mono tracking-widest uppercase text-brand-600 dark:text-brand-400 font-bold">Academic Grounding &amp; Ethos</div>
+        <h2 class="title-safe font-heading text-3xl sm:text-4xl 3xl:text-5xl font-bold text-slate-900 dark:text-white">
+          Rooted in core computer science, engineered for real-world reliability.
+        </h2>
+        <p class="text-slate-600 dark:text-slate-300 text-base 3xl:text-lg leading-relaxed">
+          I believe durable systems are built upon foundational computer science principles. My engineering approach treats abstractions with rigor, ensuring low-latency data structures, sound algorithmic choices, and mathematically accountable machine learning models.
+        </p>
+
+        <!-- Academic Core Competencies HUD Card -->
+        <div class="glass-hud p-6 rounded-2xl border-l-4 border-l-brand-500 text-left my-4">
+          <div class="text-xs font-mono uppercase text-brand-600 dark:text-brand-400 font-bold tracking-wider mb-3 flex items-center gap-2">
+            <i data-lucide="binary" class="w-4 h-4 text-brand-500"></i>
+            <span>Core Academic Curriculum &amp; CS Competencies</span>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs font-mono text-slate-700 dark:text-slate-300">
+            <div class="flex items-center gap-1.5"><span class="text-brand-500 font-bold">&gt;</span> Data Structures &amp; Algorithms</div>
+            <div class="flex items-center gap-1.5"><span class="text-brand-500 font-bold">&gt;</span> Database Management (DBMS)</div>
+            <div class="flex items-center gap-1.5"><span class="text-brand-500 font-bold">&gt;</span> Object-Oriented Design (OOP)</div>
+            <div class="flex items-center gap-1.5"><span class="text-brand-500 font-bold">&gt;</span> Computer Networks &amp; Protocols</div>
+            <div class="flex items-center gap-1.5"><span class="text-brand-500 font-bold">&gt;</span> Operating Systems &amp; Concurrency</div>
+            <div class="flex items-center gap-1.5"><span class="text-brand-500 font-bold">&gt;</span> Cloud Architecture &amp; Security</div>
+          </div>
+        </div>
+
+        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+          From developing commercial micro-frontends at <strong>Sclera</strong> to publishing research on ensemble NLP parsers in IEEE Xplore and QAOA hybrid cloud resource allocation with IGI Global, I combine classroom rigor with production craft.
+        </p>
+
+        <div class="pt-2 flex flex-wrap gap-3 justify-center lg:justify-start">
+          <span class="px-3.5 py-1.5 rounded-lg glass-hud text-xs font-mono text-slate-700 dark:text-slate-300 flex items-center gap-2">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-600 dark:text-brand-400"></i> Mangaluru, Karnataka, India
+          </span>
+          <span class="px-3.5 py-1.5 rounded-lg glass-hud text-xs font-mono text-slate-700 dark:text-slate-300 flex items-center gap-2">
+            <i data-lucide="phone" class="w-3.5 h-3.5 text-brand-600 dark:text-brand-400"></i> +91-8310253429
+          </span>
+          <a href="https://drive.google.com/file/d/1XQcmBOOgtCXLOU0WY1srR50r_oF1-82T/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-lg bg-brand-50 dark:bg-brand-600/15 text-xs font-mono text-brand-700 dark:text-brand-400 flex items-center gap-2 hover:bg-brand-100 dark:hover:bg-brand-600/25 transition-all">
+            <i data-lucide="file-check" class="w-3.5 h-3.5"></i> Download Resume
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Experience Section -->
+    <section id="experience" class="py-24 border-t border-slate-200 dark:border-white/5 reveal-box">
+      <div class="max-w-3xl mb-14">
+        <div class="text-xs font-mono tracking-widest uppercase text-brand-600 dark:text-brand-400 font-bold">Work History</div>
+        <h2 class="title-safe font-heading text-3xl sm:text-4xl 3xl:text-5xl font-bold text-slate-900 dark:text-white mt-2">Production Experience</h2>
+        <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm sm:text-base">Engineering software delivered at commercial scale.</p>
+      </div>
+
+      <div class="glass-hud p-8 sm:p-10 rounded-3xl tech-card border-l-4 border-l-brand-500">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-white/5 pb-6 mb-6">
+          <div>
+            <h3 class="title-safe text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+              Software Product Developer
+              <span class="text-xs px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-600/15 text-brand-700 dark:text-brand-400 font-mono">Full-Time + Internship</span>
+            </h3>
+            <div class="text-sm text-slate-500 dark:text-slate-400 mt-1">Sclera · Mangaluru, Karnataka</div>
+          </div>
+          <div class="text-xs font-mono text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-600/10 px-3.5 py-1.5 rounded-lg w-fit">
+            Feb 2026 – Oct 2026
+          </div>
+        </div>
+
+        <div class="space-y-4 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+          <div class="flex items-start gap-3">
+            <span class="text-brand-600 dark:text-brand-400 font-mono mt-1 text-sm font-bold">&gt;</span>
+            <div>
+              Spearheaded platform migration to <strong class="text-slate-900 dark:text-white">Next.js 16 App Router</strong> with headless <strong class="text-slate-900 dark:text-white">Strapi CMS</strong>, applying <strong class="text-slate-900 dark:text-white">Incremental Static Regeneration (ISR)</strong> and dynamic metadata architectures that cut First Contentful Paint by <strong class="text-mint-500 dark:text-mint-400">45%</strong>.
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-brand-600 dark:text-brand-400 font-mono mt-1 text-sm font-bold">&gt;</span>
+            <div>
+              Architected <strong class="text-slate-900 dark:text-white">Sclera 2.0</strong> micro-frontend framework utilizing <strong class="text-slate-900 dark:text-white">Turborepo</strong> and <strong class="text-slate-900 dark:text-white">Webpack Module Federation</strong>, decoupling monolithic codebases into isolated, independently deployable feature apps.
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-brand-600 dark:text-brand-400 font-mono mt-1 text-sm font-bold">&gt;</span>
+            <div>
+              Engineered the <strong class="text-slate-900 dark:text-white">Niurix</strong> e-commerce storefront, delivering multi-currency checkout pipelines, granular RBAC routing, server-side caching pipelines, and automated bot prevention via reCAPTCHA v3.
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-slate-200 dark:border-white/5 flex flex-wrap gap-2 text-xs font-mono text-slate-500 dark:text-slate-400">
+          <span class="px-2.5 py-1 rounded-md glass-hud">Next.js 16</span>
+          <span class="px-2.5 py-1 rounded-md glass-hud">Strapi CMS</span>
+          <span class="px-2.5 py-1 rounded-md glass-hud">Turborepo</span>
+          <span class="px-2.5 py-1 rounded-md glass-hud">Module Federation</span>
+          <span class="px-2.5 py-1 rounded-md glass-hud">RBAC</span>
+          <span class="px-2.5 py-1 rounded-md glass-hud">ISR</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Projects Section (With Detailed Interactive Modals) -->
+    <section id="projects" class="py-24 border-t border-slate-200 dark:border-white/5 reveal-box">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+        <div>
+          <div class="text-xs font-mono tracking-widest uppercase text-brand-600 dark:text-brand-400 font-bold">Featured Portfolio</div>
+          <h2 class="title-safe font-heading text-3xl sm:text-4xl 3xl:text-5xl font-bold text-slate-900 dark:text-white mt-2">Technical Projects</h2>
+          <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm sm:text-base">Click any card to open the complete architectural case study, problem statement, and solution.</p>
+        </div>
+        <div class="text-xs font-mono text-slate-500 dark:text-slate-400">
+          <span class="inline-block px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-600/10 text-brand-600 dark:text-brand-400 border border-brand-200 dark:border-brand-500/20">Interactive Deep Dive Modals</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- Project 1: IntelliHire -->
+        <div onclick="openProjectModal('intellihire')" class="cursor-pointer glass-hud p-7 rounded-3xl tech-card flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
+              <span class="text-brand-600 dark:text-brand-400 flex items-center gap-1.5 font-bold"><i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Applied NLP &amp; Matching</span>
+              <span>Nov 2025</span>
+            </div>
+            <h3 class="title-safe font-heading text-xl font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">IntelliHire: Bias-Mitigated Resume Parser</h3>
+            <p class="text-xs font-mono text-brand-600 dark:text-brand-400 mt-1">React.js · FastAPI · spaCy NER · Python · MySQL</p>
+            <p class="mt-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Automated candidate evaluation engine featuring blind parsing layers to mitigate demographic hiring bias, paired with predictive career path simulations based on historical trajectory benchmarks. Achieved sub-second matching with TF-IDF.
+            </p>
+          </div>
+          <div class="mt-8 pt-5 border-t border-slate-200 dark:border-white/5 flex items-center justify-between text-xs font-mono">
+            <span class="text-brand-600 dark:text-brand-400 group-hover:underline flex items-center gap-1.5 font-semibold">
+              <i data-lucide="layers" class="w-4 h-4"></i> Open Technical Case Study &rarr;
+            </span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-brand-50 dark:bg-brand-600/10 text-brand-700 dark:text-brand-400 border border-brand-200 dark:border-brand-500/20">IEEE Xplore Base</span>
+          </div>
+        </div>
+
+        <!-- Project 2: WenSync -->
+        <div onclick="openProjectModal('wensync')" class="cursor-pointer glass-hud p-7 rounded-3xl tech-card flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
+              <span class="text-mint-600 dark:text-mint-400 flex items-center gap-1.5 font-bold"><i data-lucide="activity" class="w-3.5 h-3.5"></i> Distributed Operations</span>
+              <span>Jun 2025</span>
+            </div>
+            <h3 class="title-safe font-heading text-xl font-bold text-slate-900 dark:text-white group-hover:text-mint-600 dark:group-hover:text-mint-400 transition-colors">WenSync: Clinical Automation Platform</h3>
+            <p class="text-xs font-mono text-mint-600 dark:text-mint-400 mt-1">Next.js · Express · MongoDB · Firebase · WebSockets</p>
+            <p class="mt-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Fault-tolerant hospital operations engine streamlining patient registration, real-time consultation ticketing, and emergency surgical theater scheduling. Features ML inventory tracking that reduced simulated outpatient wait times by 35%.
+            </p>
+          </div>
+          <div class="mt-8 pt-5 border-t border-slate-200 dark:border-white/5 flex items-center justify-between text-xs font-mono">
+            <span class="text-mint-600 dark:text-mint-400 group-hover:underline flex items-center gap-1.5 font-semibold">
+              <i data-lucide="layers" class="w-4 h-4"></i> Open Technical Case Study &rarr;
+            </span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-mint-50 dark:bg-mint-500/10 text-mint-700 dark:text-mint-400 border border-mint-200 dark:border-mint-500/20">TCE Hackathon Finalist</span>
+          </div>
+        </div>
+
+        <!-- Project 3: SwapSkill -->
+        <div onclick="openProjectModal('swapskill')" class="cursor-pointer glass-hud p-7 rounded-3xl tech-card flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
+              <span class="text-purple-600 dark:text-purple-400 flex items-center gap-1.5 font-bold"><i data-lucide="repeat" class="w-3.5 h-3.5"></i> Collaborative Web</span>
+              <span>Jan 2025</span>
+            </div>
+            <h3 class="title-safe font-heading text-xl font-bold text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">SwapSkill: P2P Knowledge Exchange</h3>
+            <p class="text-xs font-mono text-purple-600 dark:text-purple-400 mt-1">React.js · Node.js · Express · MongoDB · TailwindCSS</p>
+            <p class="mt-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Distributed platform connecting students and mentors through bilateral skill-trading contracts, featuring real-time collaborative milestone tracking and an integrated sponsorship discovery module.
+            </p>
+          </div>
+          <div class="mt-8 pt-5 border-t border-slate-200 dark:border-white/5 flex items-center justify-between text-xs font-mono">
+            <span class="text-purple-600 dark:text-purple-400 group-hover:underline flex items-center gap-1.5 font-semibold">
+              <i data-lucide="layers" class="w-4 h-4"></i> Open Technical Case Study &rarr;
+            </span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-purple-50 dark:bg-purple-500/10 text-purple-700 dark:text-purple-400 border border-purple-200 dark:border-purple-500/20">Live Deployed</span>
+          </div>
+        </div>
+
+        <!-- Project 4: SeniorCare -->
+        <div onclick="openProjectModal('seniorcare')" class="cursor-pointer glass-hud p-7 rounded-3xl tech-card flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
+              <span class="text-amber-500 flex items-center gap-1.5 font-bold"><i data-lucide="shield-alert" class="w-3.5 h-3.5"></i> Telemetry &amp; Safety</span>
+              <span>2025</span>
+            </div>
+            <h3 class="title-safe font-heading text-xl font-bold text-slate-900 dark:text-white group-hover:text-amber-500 transition-colors">SeniorCare: Activity Tracking &amp; Fall Detection</h3>
+            <p class="text-xs font-mono text-amber-500 mt-1">MySQL · React.js · Node.js · Express.js · REST APIs</p>
+            <p class="mt-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Remote monitoring engine for elderly citizen safety. Relational database schemas process real-time biometric and activity logs, instant fall-detection event triggers, and automated caregiver intervention dispatch.
+            </p>
+          </div>
+          <div class="mt-8 pt-5 border-t border-slate-200 dark:border-white/5 flex items-center justify-between text-xs font-mono">
+            <span class="text-amber-500 group-hover:underline flex items-center gap-1.5 font-semibold">
+              <i data-lucide="layers" class="w-4 h-4"></i> Open Technical Case Study &rarr;
+            </span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-500/20">HealthTech Architecture</span>
+          </div>
+        </div>
+
+        <!-- Project 5: React-Native Multi-Branch Ecosystem -->
+        <div onclick="openProjectModal('reactnative')" class="cursor-pointer glass-hud p-7 rounded-3xl tech-card flex flex-col justify-between group lg:col-span-2 border-t-4 border-t-cyan-500">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
+              <span class="text-cyan-500 flex items-center gap-1.5 font-bold"><i data-lucide="smartphone" class="w-3.5 h-3.5"></i> Mobile Systems &amp; Expo Go Deployments</span>
+              <span>4 Active Production Branches</span>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <h3 class="title-safe font-heading text-xl font-bold text-slate-900 dark:text-white group-hover:text-cyan-500 transition-colors">React Native Multi-Branch Ecosystem: SnapNote &amp; Beyond</h3>
+              <span class="text-xs font-mono text-cyan-500 bg-cyan-50 dark:bg-cyan-500/10 px-3 py-1 rounded-lg border border-cyan-500/20 w-fit">Repo: pranav-sh4/React-Native</span>
+            </div>
+            <p class="text-xs font-mono text-cyan-400 mt-1">React Native · Expo Go · NativeWind · Async Storage · Mobile Maps SDK</p>
+            <p class="mt-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Comprehensive multi-branch mobile development repository hosting 4 specialized deployed applications across isolated Git branches: <strong>SnapNote (Default Base Architecture)</strong>, <strong>expo-maps (Spatial Coordinates &amp; Geocoding)</strong>, <strong>notes-app (Persistent Local State Sync)</strong>, and <strong>smartscan (OCR &amp; Document Parsing pipeline)</strong>.
+            </p>
+
+            <!-- Mini Branch Badges -->
+            <div class="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono">
+              <div class="p-2.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5">
+                <span class="text-cyan-500 font-bold block">branch: Default</span> SnapNote Workspace
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5">
+                <span class="text-cyan-500 font-bold block">branch: expo-maps</span> Geo-navigation SDK
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5">
+                <span class="text-cyan-500 font-bold block">branch: notes-app</span> Asynchronous Storage
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5">
+                <span class="text-cyan-500 font-bold block">branch: smartscan</span> Mobile OCR Scanner
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 pt-5 border-t border-slate-200 dark:border-white/5 flex items-center justify-between text-xs font-mono">
+            <span class="text-cyan-500 group-hover:underline flex items-center gap-1.5 font-semibold">
+              <i data-lucide="layers" class="w-4 h-4"></i> Open Multi-Branch Case Study &rarr;
+            </span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">Expo Go Verified</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Redirect Banner to All GitHub Projects -->
+      <div class="mt-12 glass-hud p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-600/15 text-brand-600 dark:text-brand-400 flex items-center justify-center">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><line x1="6" y1="3" x2="6" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg>
+          </div>
+          <div>
+            <div class="title-safe font-bold text-slate-900 dark:text-white">Explore Full GitHub Arsenal</div>
+            <div class="text-xs text-slate-500 dark:text-slate-400">Discover developer tools, system utilities, and open source code on my GitHub.</div>
+          </div>
+        </div>
+        <a href="https://github.com/pranav-sh4?tab=repositories" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium text-xs font-mono flex items-center gap-2 whitespace-nowrap transition-all shadow-md shadow-brand-600/20">
+          <span>github.com/pranav-sh4</span>
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- Technical Stack Section -->
+    <section id="skills" class="py-24 border-t border-slate-200 dark:border-white/5 reveal-box">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <div class="text-xs font-mono tracking-widest uppercase text-brand-600 dark:text-brand-400 font-bold">Complete Technical Arsenal</div>
+          <h2 class="title-safe font-heading text-3xl sm:text-4xl 3xl:text-5xl font-bold text-slate-900 dark:text-white mt-2">Tools, Frameworks &amp; Environments</h2>
+          <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm sm:text-base">Comprehensive breakdown of all developer environments, languages, and systems utilized.</p>
+        </div>
+        <div class="w-full sm:w-72">
+          <div class="relative">
+            <input type="text" id="stackSearch" placeholder="Filter stack (e.g. Jenkins, Java, Figma)..." 
+                   class="w-full px-4 py-2.5 pl-10 rounded-xl glass-hud text-xs font-mono text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-brand-500 transition-all">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3"></i>
+          </div>
+        </div>
+      </div>
+
+      <div id="skillsWrapper">
+        
+        <!-- Category 1: Languages -->
+        <div class="mb-10 skill-category">
+          <h3 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-6 border-b border-slate-200 dark:border-white/10 pb-2 flex items-center gap-2">
+            <i data-lucide="code" class="w-5 h-5 text-brand-500"></i>
+            <span>Languages</span>
+          </h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="typescript javascript language">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">TypeScript</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="javascript es6+ language">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">JavaScript (ES6+)</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="python ai backend language">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">Python</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="java language oop">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">Java</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="c++ cpp systems language">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">C++</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="c systems language">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">C</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="sql database language relational">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">SQL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 2: Frontend & Mobile -->
+        <div class="mb-10 skill-category">
+          <h3 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-6 border-b border-slate-200 dark:border-white/10 pb-2 flex items-center gap-2">
+            <i data-lucide="layout" class="w-5 h-5 text-cyan-500"></i>
+            <span>Frontend &amp; Mobile</span>
+          </h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="react javascript frontend">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">React.js</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="next.js react javascript">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" class="w-6 h-6 dark:invert">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">Next.js 16</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="react native mobile frontend expo">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">React Native</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="redux toolkit state frontend">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" alt="Redux Toolkit" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">Redux Toolkit</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="tailwind css frontend styling">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">Tailwind CSS</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="html5 markup frontend">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">HTML5</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="css3 style frontend">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">CSS3</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="figma ui ux design tool">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">Figma</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="bootstrap frontend">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">Bootstrap</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 3: Backend & Architecture -->
+        <div class="mb-10 skill-category">
+          <h3 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-6 border-b border-slate-200 dark:border-white/10 pb-2 flex items-center gap-2">
+            <i data-lucide="server" class="w-5 h-5 text-mint-500"></i>
+            <span>Backend &amp; Core Engine</span>
+          </h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="nodejs backend javascript">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">Node.js</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="express.js backend javascript">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express.js" class="w-6 h-6 dark:invert">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">Express.js</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="fastapi python backend">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">FastAPI</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="linux os terminal operating systems">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">Linux</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card justify-center" data-skill="restful apis architecture backend">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">RESTful APIs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 4: Cloud, Databases & Developer Tooling -->
+        <div class="mb-10 skill-category">
+          <h3 class="font-heading text-xl font-bold text-slate-900 dark:text-white mb-6 border-b border-slate-200 dark:border-white/10 pb-2 flex items-center gap-2">
+            <i data-lucide="database" class="w-5 h-5 text-purple-500"></i>
+            <span>Cloud, Databases &amp; Developer Tooling</span>
+          </h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="postgresql database sql relational">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">PostgreSQL</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="mysql database sql relational">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">MySQL</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="mongodb database nosql document">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">MongoDB</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="firebase cloud backend auth">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">Firebase</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="aws cloud devops amazon web services">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">AWS</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="docker containers devops virtualization">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">Docker</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="git version control github">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">Git / GitHub</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="jenkins ci cd devops automation">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt="Jenkins" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">Jenkins</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="vscode code editor ide tool">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">VS Code</span>
+            </div>
+            <div class="skill-pill glass-hud p-4 rounded-2xl flex items-center gap-3 tech-card" data-skill="postman api tools testing">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman" class="w-6 h-6">
+              <span class="text-xs font-mono font-medium text-slate-800 dark:text-slate-200">Postman</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Research Publications & Hackathons -->
+    <section id="publications" class="py-24 border-t border-slate-200 dark:border-white/5 reveal-box">
+      <div class="max-w-3xl mb-14">
+        <div class="text-xs font-mono tracking-widest uppercase text-brand-600 dark:text-brand-400 font-bold">Research &amp; Honors</div>
+        <h2 class="title-safe font-heading text-3xl sm:text-4xl 3xl:text-5xl font-bold text-slate-900 dark:text-white mt-2">Peer-Reviewed &amp; Hackathons</h2>
+        <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm sm:text-base">Scientific publications indexed in global digital libraries and competitive hackathon honors.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- IEEE Publication -->
+        <div class="glass-hud p-7 rounded-3xl tech-card flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
+              <span class="text-brand-600 dark:text-brand-400 font-bold">IEEE Xplore</span>
+              <span>Nov 2025</span>
+            </div>
+            <h3 class="title-safe font-heading text-lg font-bold text-slate-900 dark:text-white">IEEE ETCOM 2025 Conference Publication</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">Paper ID: 2123 · SDM Institute</p>
+            <p class="mt-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Authored <em>"AI-Driven Resume Analysis: Ensemble-Based Skill Extraction and Semantic Job-Candidate Matching"</em>. Presented findings on reducing candidate evaluation bias through blind token parsing and spaCy NER.
+            </p>
+          </div>
+          <div class="mt-8 pt-5 border-t border-slate-200 dark:border-white/5">
+            <a href="https://ieeexplore.ieee.org/document/11436827" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-brand-600 dark:text-brand-400 hover:underline flex items-center gap-1.5">
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i> IEEE Xplore Record &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- IGI Global Book Chapter -->
+        <div class="glass-hud p-7 rounded-3xl tech-card flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
+              <span class="text-cyan-600 dark:text-cyan-400 font-bold">IGI Global Publishing</span>
+              <span>Oct 2026</span>
+            </div>
+            <h3 class="title-safe font-heading text-lg font-bold text-slate-900 dark:text-white">Quantum Cloud Book Chapter</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">DOI: 10.4018/979-8-2600-0482-1.ch004</p>
+            <p class="mt-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Co-authored <em>"QAOA for Resource Allocation in Hybrid Cloud Environments: A Pathway to Green FinOps and Scalability"</em> in <strong>Quantum Information Theory</strong>.
+            </p>
+          </div>
+          <div class="mt-8 pt-5 border-t border-slate-200 dark:border-white/5">
+            <a href="https://www.igi-global.com/gateway/chapter/427613" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-cyan-600 dark:text-cyan-400 hover:underline flex items-center gap-1.5">
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i> IGI Global Gateway &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- SkillSangam Hackathon -->
+        <div class="glass-hud p-7 rounded-3xl tech-card flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
+              <span class="text-mint-600 dark:text-mint-400 font-bold">TCE Hackathon</span>
+              <span>Jun 2025</span>
+            </div>
+            <h3 class="title-safe font-heading text-lg font-bold text-slate-900 dark:text-white">Finalist — SkillSangam 2k25</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">SCEM</p>
+            <p class="mt-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Engineered <strong>WenSync</strong> under hackathon sprint conditions, delivering clinical queue synchronization, OT conflict resolution, and predictive pharmacy supply tracking.
+            </p>
+          </div>
+          <div class="mt-8 pt-5 border-t border-slate-200 dark:border-white/5">
+            <a href="https://drive.google.com/file/d/1RN0bntU9kzWHUomHmCEL9-FmNJ4gTexd/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-mint-600 dark:text-mint-400 hover:underline flex items-center gap-1.5">
+              <i data-lucide="file-check" class="w-3.5 h-3.5"></i> Verification Certificate &rarr;
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Professional Credentials Section -->
+    <section id="certifications" class="py-24 border-t border-slate-200 dark:border-white/5 reveal-box">
+      <div class="max-w-3xl mb-14">
+        <div class="text-xs font-mono tracking-widest uppercase text-brand-600 dark:text-brand-400 font-bold">Verified Knowledge</div>
+        <h2 class="title-safe font-heading text-3xl sm:text-4xl 3xl:text-5xl font-bold text-slate-900 dark:text-white mt-2">Professional Certifications</h2>
+        <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm sm:text-base">Specialized engineering programs, cloud foundations, and security certifications.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Cert 1: Google Cybersecurity -->
+        <a href="https://drive.google.com/drive/folders/1XQcmBOOgtCXLOU0WY1srR50r_oF1-82T" target="_blank" rel="noopener noreferrer" 
+           class="glass-hud p-6 rounded-2xl tech-card flex items-center justify-between group border-l-2 border-l-rose-500">
+          <div class="flex items-center gap-4">
+            <div class="w-11 h-11 rounded-xl bg-rose-50 dark:bg-rose-500/15 text-rose-500 flex items-center justify-center font-bold">
+              <i data-lucide="shield-check" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="title-safe text-sm font-bold text-slate-900 dark:text-white group-hover:text-rose-500 transition-colors">Foundations of Cybersecurity</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400">Google · Apr 2024</div>
+            </div>
+          </div>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors"></i>
+        </a>
+
+        <!-- Cert 2: Google AI Essentials -->
+        <a href="https://drive.google.com/drive/folders/1XQcmBOOgtCXLOU0WY1srR50r_oF1-82T" target="_blank" rel="noopener noreferrer" 
+           class="glass-hud p-6 rounded-2xl tech-card flex items-center justify-between group border-l-2 border-l-indigo-500">
+          <div class="flex items-center gap-4">
+            <div class="w-11 h-11 rounded-xl bg-indigo-50 dark:bg-indigo-500/15 text-indigo-500 flex items-center justify-center font-bold">
+              <i data-lucide="sparkle" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="title-safe text-sm font-bold text-slate-900 dark:text-white group-hover:text-indigo-500 transition-colors">Google AI Essentials</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400">Google · Sep 2024</div>
+            </div>
+          </div>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors"></i>
+        </a>
+
+        <!-- Cert 3: React Incture -->
+        <a href="https://drive.google.com/file/d/1Q7AVtoB_dQlXTXi1MqElwPvIPuJ_f4Az/view?usp=drive_link" target="_blank" rel="noopener noreferrer" 
+           class="glass-hud p-6 rounded-2xl tech-card flex items-center justify-between group border-l-2 border-l-brand-500">
+          <div class="flex items-center gap-4">
+            <div class="w-11 h-11 rounded-xl bg-brand-50 dark:bg-brand-600/15 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold">
+              <i data-lucide="layers" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="title-safe text-sm font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">React Professional Training</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400">Incture Technologies · Jul 2025</div>
+            </div>
+          </div>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors"></i>
+        </a>
+
+        <!-- Cert 4: AWS Cloud Practitioner -->
+        <a href="https://drive.google.com/file/d/1crPjZqu5e0RDKwv8DqBOuKf3-Y79ajjD/view?usp=drive_link" target="_blank" rel="noopener noreferrer" 
+           class="glass-hud p-6 rounded-2xl tech-card flex items-center justify-between group border-l-2 border-l-cyan-500">
+          <div class="flex items-center gap-4">
+            <div class="w-11 h-11 rounded-xl bg-cyan-50 dark:bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-bold">
+              <i data-lucide="cloud" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="title-safe text-sm font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">Cloud Practitioner Essentials</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400">Amazon Web Services · Aug 2025</div>
+            </div>
+          </div>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors"></i>
+        </a>
+
+        <!-- Cert 5: Modern C++ IIT -->
+        <a href="https://drive.google.com/file/d/1XQcmBOOgtCXLOU0WY1srR50r_oF1-82T/view?usp=drive_link" target="_blank" rel="noopener noreferrer" 
+           class="glass-hud p-6 rounded-2xl tech-card flex items-center justify-between group border-l-2 border-l-mint-500">
+          <div class="flex items-center gap-4">
+            <div class="w-11 h-11 rounded-xl bg-mint-50 dark:bg-mint-500/15 text-mint-600 dark:text-mint-400 flex items-center justify-center font-bold">
+              <i data-lucide="terminal" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="title-safe text-sm font-bold text-slate-900 dark:text-white group-hover:text-mint-600 dark:group-hover:text-mint-400 transition-colors">Modern C++ Programming</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400">NPTEL &amp; IIT Kharagpur · Apr 2024</div>
+            </div>
+          </div>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors"></i>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Connect / Cybernetic Telemetry Command Console -->
+<section id="contact" class="py-28 border-t border-slate-200 dark:border-white/5 relative overflow-hidden reveal-box">
+  
+  <!-- Subtle Background Coordinate Matrix Overlay -->
+  <div class="absolute inset-0 pointer-events-none opacity-40 dark:opacity-25" 
+       style="background-image: radial-gradient(rgba(59, 130, 246, 0.18) 1px, transparent 1px); background-size: 32px 32px;"></div>
+
+  <div class="max-w-6xl 3xl:max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
+
+    <!-- Terminal Status Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+      <div class="space-y-3">
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-brand-50 dark:bg-brand-600/15 border border-brand-200 dark:border-brand-500/25 text-brand-700 dark:text-brand-400 text-xs font-mono font-medium shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-mint-500 animate-ping"></span>
+          <span>DISPATCH_GATEWAY // PORT_443 &middot; READY</span>
+        </div>
+        <h2 class="title-safe font-heading text-4xl sm:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Initialize <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 via-indigo-500 to-cyan-400">Connection</span>.
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-xl font-normal leading-relaxed">
+          Open to distributed systems engineering roles, scalable full-stack builds, and applied AI collaboration. Send a secure ping or schedule an engineering sync.
+        </p>
+      </div>
+
+      <!-- Live Handshake Telemetry Badge -->
+      <div class="glass-hud p-4 rounded-2xl border border-slate-200 dark:border-white/10 font-mono text-xs space-y-1.5 min-w-[260px] shadow-lg">
+        <div class="flex items-center justify-between text-slate-500 dark:text-slate-400">
+          <span>LATENCY PING:</span>
+          <span class="text-mint-500 font-bold flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-mint-500"></span> 18ms (OPTIMAL)
+          </span>
+        </div>
+        <div class="flex items-center justify-between text-slate-500 dark:text-slate-400">
+          <span>CIPHER PROTOCOL:</span>
+          <span class="text-brand-500 font-semibold">TLS_AES_256_GCM</span>
+        </div>
+        <div class="flex items-center justify-between text-slate-500 dark:text-slate-400">
+          <span>COORDINATES:</span>
+          <span class="text-slate-700 dark:text-slate-200">12.9141° N, 74.8560° E</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Dispatch Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      
+      <!-- Primary Interactive Direct Line Console (7 Cols) -->
+      <div class="lg:col-span-7 glass-hud p-8 sm:p-10 rounded-3xl tech-card border border-slate-200 dark:border-white/10 relative overflow-hidden flex flex-col justify-between shadow-2xl">
+        
+        <!-- Ambient Circuit Accent Line -->
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-500 via-indigo-500 to-cyan-400"></div>
+
+        <div class="space-y-6">
+          <div class="flex items-center justify-between border-b border-slate-200 dark:border-white/10 pb-4">
+            <div class="flex items-center gap-2 font-mono text-xs text-brand-600 dark:text-brand-400">
+              <i data-lucide="radio" class="w-4 h-4 text-brand-500 animate-pulse"></i>
+              <span class="font-bold tracking-wider">PRIMARY_MAIL_ENDPOINT</span>
+            </div>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-white/5 text-slate-500">TTL: IMMEDIATE</span>
+          </div>
+
+          <div class="space-y-2">
+            <span class="text-xs font-mono uppercase text-slate-400 tracking-widest block">Recipient Channel</span>
+            <div class="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900 dark:text-white tracking-tight break-all">
+              psholla04<span class="text-brand-500">@</span>gmail.com
+            </div>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-sans pt-1">
+              Direct inbox link for architectural inquiries, engineering proposals, code audits, or competitive hiring requests. Monitored continuously.
+            </p>
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div class="flex flex-wrap gap-3 pt-2">
+            <a href="mailto:psholla04@gmail.com" 
+               class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-brand-600 via-indigo-600 to-brand-700 hover:opacity-95 text-white font-mono text-xs font-semibold flex items-center gap-2 shadow-lg shadow-brand-600/30 transition-all hover:scale-[1.02] active:scale-[0.98]">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>TRANSMIT_DISPATCH &rarr;</span>
+            </a>
+            
+            <button type="button" 
+                    onclick="copyToClipboard('psholla04@gmail.com', 'psholla04@gmail.com copied to clipboard!')"
+                    class="px-5 py-3.5 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-white/10 font-mono text-xs font-medium flex items-center gap-2 transition-all">
+              <i data-lucide="copy" class="w-3.5 h-3.5 text-brand-500"></i>
+              <span>COPY_ENDPOINT</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Terminal Telemetry Footer -->
+        <div class="mt-8 pt-6 border-t border-slate-200 dark:border-white/10 flex flex-wrap items-center justify-between gap-4 text-[11px] font-mono text-slate-400">
+          <span class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-mint-500"></span> GPG Signature: VERIFIED
+          </span>
+          <span class="text-slate-500 dark:text-slate-400">Pipelined to personal device</span>
+        </div>
+      </div>
+
+      <!-- Protocol Hubs & Transceivers (5 Cols) -->
+      <div class="lg:col-span-5 flex flex-col gap-4">
+        
+        <!-- LinkedIn Protocol Card -->
+        <a href="https://www.linkedin.com/in/pranava-s-345929247/" target="_blank" rel="noopener noreferrer"
+           class="glass-hud p-5 rounded-2xl tech-card border border-slate-200 dark:border-white/10 flex items-center justify-between group">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-[#0a66c2]/10 border border-[#0a66c2]/20 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 fill-current text-[#0a66c2]" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.53 1.53 0 0 0 0-3.06 1.53 1.53 0 0 0 0 3.06m1.4 9.74v-8.37H5.06v8.37h2.8z"></path>
+              </svg>
+            </div>
+            <div>
+              <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider block">SYN // HANDSHAKE</span>
+              <div class="title-safe text-base font-bold text-slate-900 dark:text-white group-hover:text-brand-500 transition-colors">
+                LinkedIn Transmission
+              </div>
+              <span class="text-xs text-slate-500 font-mono">/in/pranava-s</span>
+            </div>
+          </div>
+          <div class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-white/5 flex items-center justify-center text-slate-400 group-hover:text-brand-500 group-hover:translate-x-1 transition-all">
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </div>
+        </a>
+
+        <!-- Voice / Instant Signal Line Card -->
+        <div class="glass-hud p-5 rounded-2xl tech-card border border-slate-200 dark:border-white/10 flex items-center justify-between group">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-mint-500/10 border border-mint-500/20 flex items-center justify-center shrink-0 text-mint-500">
+              <i data-lucide="phone-call" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider block">VOICE // SIGNAL</span>
+              <div class="title-safe text-base font-bold text-slate-900 dark:text-white">
+                +91-8310253429
+              </div>
+              <span class="text-xs text-slate-500 font-mono">IST (UTC +5:30) &middot; Available</span>
+            </div>
+          </div>
+          <button type="button" 
+                  onclick="copyToClipboard('+918310253429', 'Phone number copied to clipboard!')"
+                  aria-label="Copy phone number"
+                  class="p-2 rounded-lg bg-slate-100 dark:bg-white/5 text-slate-400 hover:text-mint-500 transition-colors">
+            <i data-lucide="copy" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- Global Production Host Card -->
+        <a href="https://pranava-dev.vercel.app/" target="_blank" rel="noopener noreferrer"
+           class="glass-hud p-5 rounded-2xl tech-card border border-slate-200 dark:border-white/10 flex items-center justify-between group">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center shrink-0 text-cyan-400">
+              <i data-lucide="globe" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider block">EDGE // DEPLOYMENT</span>
+              <div class="title-safe text-base font-bold text-slate-900 dark:text-white group-hover:text-cyan-400 transition-colors">
+                pranava-dev.vercel.app
+              </div>
+              <span class="text-xs text-slate-500 font-mono">Global Edge DNS &middot; Vercel CI/CD</span>
+            </div>
+          </div>
+          <div class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-white/5 flex items-center justify-center text-slate-400 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all">
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+  </main>
+
+  <!-- Technical Project Modal (Elaborated Deep Dive Viewer) -->
+  <div id="projectModal" class="fixed inset-0 z-50 invisible opacity-0 pointer-events-none">
+    <div id="projectBackdrop" class="absolute inset-0 bg-black/75 backdrop-blur-md cursor-pointer"></div>
+    <div class="absolute right-0 top-0 h-full w-full max-w-2xl bg-cyber-surface border-l border-white/10 p-6 sm:p-8 flex flex-col shadow-2xl translate-x-full overflow-y-auto text-slate-200" id="projectPanel">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between pb-4 border-b border-white/10">
+        <div class="flex items-center gap-2 text-xs font-mono text-brand-400">
+          <i data-lucide="cpu" class="w-4 h-4"></i>
+          <span>PROJECT_SPEC_TELEMETRY // DEEP DIVE</span>
+        </div>
+        <button id="closeProjectBtn" type="button" aria-label="Close Project Modal" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-white/5 transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body Content -->
+      <div id="projectModalContent" class="py-6 space-y-6"></div>
+    </div>
+  </div>
+
+  <!-- Interactive Slide-over CLI Terminal Modal -->
+  <div id="cliModal" class="fixed inset-0 z-50 invisible opacity-0 pointer-events-none">
+    <div id="cliBackdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm cursor-pointer"></div>
+    <div class="absolute right-0 top-0 h-full w-full max-w-xl bg-slate-900 border-l border-white/10 p-6 flex flex-col shadow-2xl translate-x-full font-mono text-xs text-slate-200" id="cliPanel">
+      
+      <!-- Top Window Bar -->
+      <div class="flex items-center justify-between pb-4 border-b border-white/10">
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 rounded-full bg-rose-500"></div>
+          <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+          <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+          <span class="ml-2 text-slate-400 text-[11px]">pranava-cli@v2.6</span>
+        </div>
+        <button id="closeCliBtn" type="button" aria-label="Close Terminal" class="text-slate-400 hover:text-white p-1 rounded">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Quick Command Buttons -->
+      <div class="py-3 flex flex-wrap gap-2 border-b border-white/5">
+        <button type="button" onclick="runCliCommand('stack')" class="px-2.5 py-1 rounded bg-white/5 text-brand-400 hover:bg-white/10">stack</button>
+        <button type="button" onclick="runCliCommand('academics')" class="px-2.5 py-1 rounded bg-white/5 text-brand-400 hover:bg-white/10">academics</button>
+        <button type="button" onclick="runCliCommand('projects')" class="px-2.5 py-1 rounded bg-white/5 text-brand-400 hover:bg-white/10">projects</button>
+        <button type="button" onclick="runCliCommand('mobile')" class="px-2.5 py-1 rounded bg-white/5 text-brand-400 hover:bg-white/10">mobile</button>
+        <button type="button" onclick="runCliCommand('certifications')" class="px-2.5 py-1 rounded bg-white/5 text-brand-400 hover:bg-white/10">certifications</button>
+        <button type="button" onclick="runCliCommand('clear')" class="px-2.5 py-1 rounded bg-white/5 text-slate-400 hover:bg-white/10">clear</button>
+      </div>
+
+      <!-- Terminal Output Feed -->
+      <div id="cliOutput" class="flex-1 overflow-y-auto py-4 space-y-3 leading-relaxed text-slate-300">
+        <div class="text-slate-400">Welcome to S Pranava's CLI sandbox. Type <span class="text-brand-400 font-bold">help</span> to list commands or click any chip above.</div>
+      </div>
+
+      <!-- Terminal Input Line -->
+      <form id="cliForm" class="pt-3 border-t border-white/10 flex items-center gap-2">
+        <span class="text-brand-400 font-bold">pranava@system:~$</span>
+        <input type="text" id="cliInput" autocomplete="off" placeholder="type command..." 
+               class="flex-1 bg-transparent text-white focus:outline-none text-xs font-mono">
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Copy Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 glass-hud px-4 py-2.5 rounded-xl border border-slate-300 dark:border-white/10 text-xs font-mono text-slate-900 dark:text-white flex items-center gap-2 shadow-2xl transition-all duration-300 opacity-0 translate-y-3 pointer-events-none">
+    <i data-lucide="check" class="w-4 h-4 text-mint-500 dark:text-mint-400"></i>
+    <span id="toastMsg">Action completed</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 dark:border-white/5 py-8 text-center text-xs font-mono text-slate-500">
+    <div class="max-w-7xl 3xl:max-w-[1720px] mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>&copy; 2026 S Pranava. Systems &amp; Applied AI Engineer.</div>
+      <div class="text-slate-400">Engineered with precision components &amp; clean architectures.</div>
+    </div>
+  </footer>
+
+  <!-- Core JavaScript Execution Logic -->
+  <script>
+    // 1. Initial Icon Hydration for Lucide
+    lucide.createIcons();
+
+    // 2. Trailing Magnetic Cursor
+    const cursorDot = document.getElementById('cursorDot');
+    const cursorRing = document.getElementById('cursorRing');
+
+    if (cursorDot && cursorRing && window.matchMedia('(pointer: fine)').matches) {
+      window.addEventListener('mousemove', (e) => {
+        cursorDot.style.transform = `translate3d(${e.clientX - 4}px, ${e.clientY - 4}px, 0)`;
+        cursorRing.style.transform = `translate3d(${e.clientX - 16}px, ${e.clientY - 16}px, 0)`;
+      });
+
+      const interactive = document.querySelectorAll('a, button, input, .tech-card');
+      interactive.forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-active'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-active'));
+      });
+    }
+
+    // 3. Reliable Dark / Light Theme Manager
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeIcon = document.getElementById('themeIcon');
+    const rootHtml = document.documentElement;
+
+    function applyTheme(isDark) {
+      if (isDark) {
+        rootHtml.classList.add('dark');
+        themeIcon.setAttribute('data-lucide', 'sun');
+      } else {
+        rootHtml.classList.remove('dark');
+        themeIcon.setAttribute('data-lucide', 'moon');
+      }
+      lucide.createIcons();
+      localStorage.setItem('pranava_theme', isDark ? 'dark' : 'light');
+    }
+
+    const userPref = localStorage.getItem('pranava_theme');
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(userPref ? userPref === 'dark' : systemDark);
+
+    themeToggleBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const currentlyDark = rootHtml.classList.contains('dark');
+      applyTheme(!currentlyDark);
+    });
+
+    // 4. Mobile Navigation Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const menuIcon = document.getElementById('menuIcon');
+
+    mobileMenuBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isClosed = mobileDrawer.classList.contains('hidden');
+      if (isClosed) {
+        mobileDrawer.classList.remove('hidden');
+        menuIcon.setAttribute('data-lucide', 'x');
+      } else {
+        mobileDrawer.classList.add('hidden');
+        menuIcon.setAttribute('data-lucide', 'menu');
+      }
+      lucide.createIcons();
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDrawer.classList.add('hidden');
+        menuIcon.setAttribute('data-lucide', 'menu');
+        lucide.createIcons();
+      });
+    });
+
+    // 5. Detailed Technical Project Case Study Specifications
+    const projectDetails = {
+      intellihire: {
+        title: "IntelliHire: Bias-Mitigated NLP Resume Parser & Matching Engine",
+        timeline: "Nov 2025",
+        badge: "IEEE Xplore Indexed Technology",
+        tagline: "React.js · FastAPI · Python · spaCy NER · TF-IDF · MySQL",
+        problem: "Conventional resume parsing software perpetuates implicit demographic and educational pedigree bias during initial screening, while keyword-matching algorithms fail to capture the semantic depth of candidate experience, generating high false-negative rates.",
+        solution: "Engineered an automated candidate evaluation pipeline featuring blind token parsing layers that mathematically scrub identifying demographic data before evaluation. Built an ensemble NLP architecture pairing custom spaCy Named Entity Recognition (NER) for multi-attribute extraction with TF-IDF cosine similarity for sub-second (<800ms) semantic candidate-role alignment.",
+        architecture: [
+          "Blind Parsing Middleware: Strips gender, age, collegiate pedigree, and geographic identifiers before vector indexing.",
+          "Ensemble NLP Matching: Combines tokenized spaCy entity weights with TF-IDF vector-space representations for contextual skill scoring.",
+          "Recruiter Analytics Portal: Normalized MySQL schemas backing role-based recruiters with stateless JWT authentication and predictive career progression trajectory simulations."
+        ],
+        github: "https://github.com/pranav-sh4/IntelliHire"
+      },
+      wensync: {
+        title: "WenSync: Distributed Clinical Automation Platform",
+        timeline: "Jun 2025",
+        badge: "SkillSangam 2k25 National Hackathon Finalist",
+        tagline: "Next.js · Express.js · MongoDB · Firebase · WebSockets · Python",
+        problem: "Hospital emergency departments and outpatient wards suffer severe throughput bottlenecks due to disconnected token distribution, manual conflict resolution in surgical operating theaters (OT), and unpredictable pharmacy stock depletion.",
+        solution: "Architected a fault-tolerant distributed healthcare orchestration platform that coordinates patient registration, live token queues, and surgical theater schedules with zero double-booking conflicts. Reduced outpatient wait times by 35% during live emergency stress tests.",
+        architecture: [
+          "Live Token Engine: WebSocket-driven state synchronization with automatic queue advancement and Firebase push alerts.",
+          "Conflict-Free OT Scheduler: Deterministic state engine with emergency pre-emption override for trauma interventions.",
+          "ML Inventory Forecaster: Linear regression tracking pharmaceutical burn rates with automated supply replenishment triggers."
+        ],
+        github: "https://github.com/pranav-sh4/WenSync"
+      },
+      swapskill: {
+        title: "SwapSkill: P2P Knowledge Exchange & Milestone Verification",
+        timeline: "Jan 2025",
+        badge: "Production Distributed Architecture",
+        tagline: "React.js · Node.js · Express.js · MongoDB · Tailwind CSS · JWT",
+        problem: "Students and junior engineers face siloed learning environments and lack accessible avenues to trade practical technical mentorship without high subscription barriers or disorganized peer communication.",
+        solution: "Designed a distributed peer-to-peer knowledge exchange platform enabling bilateral skill-trading contracts. Built an integrated sponsor challenge discovery board where third-party mentors post hack challenges, increasing project completion rates by 20%.",
+        architecture: [
+          "Bilateral Smart Contracts: Digital agreement models ensuring milestone verification prior to skill credential exchange.",
+          "Compound Indexed MongoDB Schema: High-concurrency query execution with indexed compound search sustaining sub-50ms query responses.",
+          "Stateless Security Gateway: Bcrypt cryptographic password hashing, strict rate limiting, and RBAC token rotation."
+        ],
+        github: "https://github.com/pranav-sh4/SwapSkill"
+      },
+      seniorcare: {
+        title: "SeniorCare: Citizen Activity Tracking & Fall Detection System",
+        timeline: "2025",
+        badge: "HealthTech Telemetry Architecture",
+        tagline: "MySQL · React.js · Node.js · Express.js · REST APIs · WebSockets",
+        problem: "Isolated elderly citizens lack real-time passive safety monitoring, while existing alert systems generate frequent false alarms or fail to dispatch emergency medical interventions quickly during critical falls.",
+        solution: "Modeled and engineered a continuous sensor and biometric telemetry platform. Created a normalized relational database engine supporting activity timeseries logging, immediate fall-detection event triggers, and automated caregiver SMS/WebSocket notifications.",
+        architecture: [
+          "Relational Telemetry Schemas: MySQL tables optimized for time-series sensor ingestion and instantaneous anomaly detection.",
+          "Fall Detection Interceptor: Threshold-based algorithm prioritizing sudden acceleration drops followed by immediate stillness.",
+          "Caregiver Dispatch Hub: Real-time dashboard with geographical location tagging, medical history summaries, and 1-click EMS dispatch."
+        ],
+        github: "https://github.com/pranav-sh4/SeniorCare"
+      },
+      reactnative: {
+        title: "React Native Multi-Branch Ecosystem: SnapNote & Expo Go Apps",
+        timeline: "2025 – 2026",
+        badge: "4 Production Git Branches · Expo Go Verified",
+        tagline: "React Native · Expo Go SDK · NativeWind · Async Storage · Mobile Maps",
+        problem: "Demonstrating diverse mobile engineering competencies (spatial map interfaces, persistent storage, OCR document parsing, and modern responsive UI) is difficult within a single monolithic mobile codebase.",
+        solution: "Structured a centralized, multi-branch GitHub repository (pranav-sh4/React-Native) maintaining 4 distinct, fully deployed mobile apps across isolated Git branches, each tested and executable on physical iOS and Android devices via Expo Go.",
+        architecture: [
+          "Default Branch // SnapNote: Flagship clean note-taking & markdown authoring mobile application with custom theme engines and responsive native gestures.",
+          "expo-maps Branch: Spatial coordinates interface utilizing Google Maps & Apple Maps SDKs with custom coordinate pins and geolocation tracking.",
+          "notes-app Branch: Local-first architecture featuring asynchronous encrypted local storage and optimistic UI state synchronization.",
+          "smartscan Branch: Optical Character Recognition (OCR) and document scanner pipeline leveraging on-device camera hardware and image manipulation libraries."
+        ],
+        github: "https://github.com/pranav-sh4/React-Native"
+      }
+    };
+
+    const projectModal = document.getElementById('projectModal');
+    const projectBackdrop = document.getElementById('projectBackdrop');
+    const projectPanel = document.getElementById('projectPanel');
+    const closeProjectBtn = document.getElementById('closeProjectBtn');
+    const projectModalContent = document.getElementById('projectModalContent');
+
+    function openProjectModal(key) {
+      const data = projectDetails[key];
+      if (!data) return;
+
+      projectModalContent.innerHTML = `
+        <div class="space-y-4">
+          <div class="flex items-center justify-between text-xs font-mono">
+            <span class="text-brand-400 font-bold">${data.badge}</span>
+            <span class="text-slate-500">${data.timeline}</span>
+          </div>
+          <h3 class="font-heading text-2xl font-bold text-white">${data.title}</h3>
+          <div class="p-3 rounded-xl bg-white/5 border border-white/5 text-xs font-mono text-cyan-400">
+            ${data.tagline}
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-xs font-mono uppercase text-brand-400 font-bold tracking-wider">Problem Statement</h4>
+          <p class="text-sm text-slate-300 leading-relaxed">${data.problem}</p>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-xs font-mono uppercase text-mint-400 font-bold tracking-wider">Proposed Architecture &amp; Solution</h4>
+          <p class="text-sm text-slate-300 leading-relaxed">${data.solution}</p>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-xs font-mono uppercase text-purple-400 font-bold tracking-wider">Engineering Modules &amp; Subsystems</h4>
+          <ul class="space-y-2 text-xs font-mono text-slate-300">
+            ${data.architecture.map(item => `<li class="flex items-start gap-2"><span class="text-brand-400 font-bold">&gt;</span><span>${item}</span></li>`).join('')}
+          </ul>
+        </div>
+
+        <div class="pt-6 border-t border-white/10 flex flex-wrap gap-4 items-center justify-between">
+          <a href="${data.github}" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-mono text-xs flex items-center gap-2 transition-all shadow-lg shadow-brand-600/30">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+            <span>Inspect Source on GitHub</span> &rarr;
+          </a>
+          <span class="text-xs font-mono text-slate-500">Press ESC to dismiss</span>
+        </div>
+      `;
+
+      projectModal.classList.add('active');
+      lucide.createIcons();
+    }
+
+    function closeProjectModal() {
+      projectModal.classList.remove('active');
+    }
+
+    closeProjectBtn.addEventListener('click', closeProjectModal);
+    projectBackdrop.addEventListener('click', closeProjectModal);
+
+    // 6. Real-time Stack Search Filter
+    const stackSearch = document.getElementById('stackSearch');
+    const skillPills = document.querySelectorAll('.skill-pill');
+
+    stackSearch.addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase().trim();
+      skillPills.forEach(pill => {
+        const keywords = pill.getAttribute('data-skill') || '';
+        const title = pill.textContent.toLowerCase();
+        
+        if (keywords.includes(term) || title.includes(term)) {
+          pill.style.display = 'flex';
+        } else {
+          pill.style.display = 'none';
+        }
+      });
+    });
+
+    // 7. Interactive CLI Console Modal
+    const cliModal = document.getElementById('cliModal');
+    const cliBackdrop = document.getElementById('cliBackdrop');
+    const openCliBtn = document.getElementById('openCliBtn');
+    const closeCliBtn = document.getElementById('closeCliBtn');
+    const cliForm = document.getElementById('cliForm');
+    const cliInput = document.getElementById('cliInput');
+    const cliOutput = document.getElementById('cliOutput');
+
+    function openCli() {
+      cliModal.classList.add('active');
+      setTimeout(() => cliInput.focus(), 150);
+    }
+
+    function closeCli() {
+      cliModal.classList.remove('active');
+    }
+
+    openCliBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openCli();
+    });
+
+    closeCliBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeCli();
+    });
+
+    cliBackdrop.addEventListener('click', closeCli);
+
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        if (cliModal.classList.contains('active')) {
+          closeCli();
+        } else {
+          openCli();
+        }
+      } else if (e.key === 'Escape') {
+        if (cliModal.classList.contains('active')) closeCli();
+        if (projectModal.classList.contains('active')) closeProjectModal();
+      }
+    });
+
+    const commands = {
+      help: "Commands available: stack, academics, experience, projects, mobile, certifications, contact, clear",
+      stack: "CORE STACK: Next.js 16, React.js, React Native, TypeScript, Python, FastAPI, Node.js, C++, Java, AWS, Docker, Jenkins, MongoDB, MySQL, PostgreSQL, Strapi CMS, Figma.",
+      academics: "CORE CS CURRICULUM: Data Structures & Algorithms (DSA), DBMS, OOP, Computer Networks, Operating Systems & System Security.",
+      experience: "EXPERIENCE: Software Product Developer @ Sclera (Next.js 16 App Router, Turborepo, Module Federation, Niurix storefront).",
+      projects: "PROJECTS: 1. IntelliHire (NLP parser) | 2. WenSync (Clinical triage) | 3. SwapSkill (P2P exchange) | 4. SeniorCare (Fall telemetry) | 5. React Native Multi-Branch (SnapNote).",
+      mobile: "REACT NATIVE ECOSYSTEM: Repo pranav-sh4/React-Native featuring 4 branches: Default/SnapNote, expo-maps, notes-app, and smartscan deployed on Expo Go.",
+      certifications: "CREDENTIALS: 1. Google Cybersecurity (Apr '24) | 2. Google AI Essentials (Sep '24) | 3. AWS Cloud Practitioner | 4. React Incture | 5. NPTEL IIT C++.",
+      contact: "CONTACT: Email: psholla04@gmail.com | Phone: +91-8310253429 | GitHub: github.com/pranav-sh4"
+    };
+
+    function runCliCommand(rawCmd) {
+      const cmd = rawCmd.trim().toLowerCase();
+      
+      if (cmd === 'clear') {
+        cliOutput.innerHTML = '';
+        return;
+      }
+
+      const line = document.createElement('div');
+      line.innerHTML = `<span class="text-brand-400 font-bold">pranava@system:~$</span> ${rawCmd}`;
+      cliOutput.appendChild(line);
+
+      const response = document.createElement('div');
+      response.className = "text-slate-300";
+      response.textContent = commands[cmd] || `command not found: "${rawCmd}". Type "help" for a list of valid commands.`;
+      cliOutput.appendChild(response);
+
+      cliOutput.scrollTop = cliOutput.scrollHeight;
+    }
+
+    cliForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const val = cliInput.value.trim();
+      if (val) {
+        runCliCommand(val);
+        cliInput.value = '';
+      }
+    });
+
+    // 8. Direct Copy to Clipboard Toast Utility
+    function copyToClipboard(text, message) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => triggerToast(message));
+      } else {
+        const temp = document.createElement('input');
+        temp.value = text;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        triggerToast(message);
+      }
+    }
+
+    function triggerToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.textContent = message;
+      toast.classList.remove('opacity-0', 'translate-y-3', 'pointer-events-none');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-3', 'pointer-events-none');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 2500);
+    }
+
+    // 9. Hardware-Accelerated Intersection Observer Reveal Animations
+    document.addEventListener('DOMContentLoaded', () => {
+      const reveals = document.querySelectorAll('.reveal-box');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      reveals.forEach(el => observer.observe(el));
+    });
+  </script>
 </body>
 </html>
